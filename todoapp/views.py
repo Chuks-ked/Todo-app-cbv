@@ -5,7 +5,7 @@ from django.views.generic import CreateView, DeleteView, UpdateView
 
 # Create your views here.
 
-class alltodos(CreateView):
+class Alltodos(CreateView):
     template_name="alltodo.html"
     model = Mytodo
     form_class = TodoForm
@@ -16,12 +16,12 @@ class alltodos(CreateView):
         context['todos'] = Mytodo.objects.all()
         return context
 
-class deleteItem(DeleteView):
+class DeleteItem(DeleteView):
     template_name="deleteItem.html"
     model = Mytodo
     success_url = reverse_lazy('alltodos')
 
-class updateItem(UpdateView):
+class UpdateItem(UpdateView):
     model = Mytodo
     fields = ['task']
     template_name="updateItem.html"
